@@ -5,3 +5,39 @@
     width: 2000px; height: 780px;
     background-color: rgb(13, 223, 135); 
 }
+
+#addPart {
+    background-color: green; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#deletePart {
+    background-color: red; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: larger;
+    font-weight: bolder;
+}
+#mold_no[type=text], #part_Name[type=text], #part_No[type=text], #part_Location[type=text] {
+    width: 15%;
+    padding: 12px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+

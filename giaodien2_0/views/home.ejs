@@ -159,7 +159,7 @@
                 <p><button id="addTool" onclick="addNewRow1()">Thêm thiết bị</button>
                 <button id="deleteTool">Xóa thiết bị</button></p>
                 <p><input type="text" id="toolName" name="addTool1" value="Tên thiết bị"> 
-                <input type="text" id="tooltype" name="tootype" value="Loại thiết bị"> 
+                <input type="text" id="tooltype" name="tootype" value="Loại thiết bị"> </p>
 
 
                 <table id="example_1" class="cell-border row-border hover stripe compact" style="width:50%">
@@ -304,7 +304,86 @@
             
         <!-- //////////////Code cho màn hình 3////////////// -->
             <div id = "Partdata_screen">
-                
+                <p><button id="addPart" onclick="addNewRow_partdata()">Thêm Part</button>
+                <button id="deletePart">Xóa Part</button></p>
+                <p>
+                <input type="text" id="mold_no" name="moldno" value="Mold No"> 
+                <input type="text" id="part_Name" name="partname" value="Part name">
+                <input type="text" id="part_No" name="moldno" value="Part No">
+                <input type="text" id="part_Location" name="factory" value="Factory">
+            
+                </p>
+                <table id="part_data" class="cell-border row-border hover stripe compact" style="width:50%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Mold No</th>
+                            <th>Part name</th>
+                            <th>Part No</th>
+                            <th>Location</th>
+                            <th>Add date</th>
+                        </tr>
+                    </thead>
+    
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Mold No</th>
+                            <th>Part name</th>
+                            <th>Part No</th>
+                            <th>Location</th>
+                            <th>Add date</th>
+                        </tr>
+                    </tfoot>
+                </table>  
             </div> 
+            <script>
+                new DataTable('#part_data', {
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollY: '450px',
+                    orderable: false,
+                                //Chương trình con tìm kiếm dữ liệu
+                                initComplete: function () {
+                            this.api()
+                                .columns()
+                                .every(function () {
+                                    let column = this;
+                                    let title = column.footer().textContent;
+        
+                                    // Create input element
+                                    let input = document.createElement('input');
+                                    input.placeholder = title;
+                                    column.footer().replaceChildren(input);
+        
+                                    // Event listener for user input
+                                    input.addEventListener('keyup', () => {
+                                        if (column.search() !== this.value) {
+                                            column.search(input.value).draw();
+                                        }
+                                    });
+                                });
+                        }
+                        
+                                });
+                                const table_2 = new DataTable('#part_data');
+                                table_2.on('click', 'tbody tr', (e) => {
+                                let classList2 = e.currentTarget.classList;
+                            
+                                if (classList2.contains('selected')) {
+                                    classList2.remove('selected');
+                                }
+                                else {
+                                    table_2.rows('.selected').nodes().each((row) => row.classList1.remove('selected'));
+                                    classList2.add('selected');
+                                }
+                            });
+                            
+                            document.querySelector('#deletePart').addEventListener('click', function () {
+                                table_2.row('.selected').remove().draw(false);
+                            });
+                
+                let id_counter=1;
+            </script>
         </body>
 </html>

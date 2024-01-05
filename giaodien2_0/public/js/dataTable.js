@@ -46,3 +46,26 @@ function addNewRow1() {
      ] ).draw();
 
 }
+
+function addNewRow_partdata() {
+    var table = $('#part_data').DataTable();
+
+
+    var moldNo = document.getElementById('mold_no').value;
+    var partName = document.getElementById('part_Name').value;
+    var partNo = document.getElementById('part_No').value;
+    var partLocation = document.getElementById('part_Location').value;
+    var addDate = new Date();
+    table.row.add( [
+            id_counter,
+            moldNo,
+            partName,
+            partNo,
+            partLocation,
+            addDate.toLocaleDateString()
+
+            
+
+     ] ).draw();
+     id_counter++
+}
