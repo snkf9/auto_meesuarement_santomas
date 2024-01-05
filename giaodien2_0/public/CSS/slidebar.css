@@ -1,7 +1,7 @@
 #title {
     position: absolute;
     left: 0px; top: 0px;
-    width: 2000px; height: 60px;
+    width: 2200px; height: 60px;
     background-color: aquamarine;
     color: red;
     font-size: 55;
@@ -9,7 +9,7 @@
 #titleIqpc {
     position: absolute;
     left: 0px; top: 60px;
-    width: 2000px; height: 40px;
+    width: 2200px; height: 40px;
     background-color: aquamarine;
     color: red;
     font-size: 35;
@@ -20,7 +20,7 @@
 #slidebar {
     position: absolute; 
     left: 0px; top: 100px; 
-    width: 2000px; height: 50px;
+    width: 2200px; height: 50px;
     background-color: rgb(40, 58, 107); 
 }
 /*Nút Màn chính*/

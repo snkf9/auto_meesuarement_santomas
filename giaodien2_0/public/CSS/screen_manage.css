@@ -2,33 +2,41 @@
 #Screen_Main {
     position: absolute; 
     left: 0px; top: 150px; 
-    width: 2000px; height: 780px;
+    width: 2200px; height: 780px;
    
 }
 #Screen_Main_1 {
     position: absolute;
     left: 0px; top: 0px;
-    width: 1000px; height: 780px;
+    width: 1100px; height: 780px;
     background-color: rgb(179, 215, 212);
 }
 #Screen_Main_2 {
     position: absolute;
-    left: 1000px; top: 0px;
-    width: 1000px; height: 780px;
-    background-color: gray;
+    left: 1100px; top: 0px;
+    width: 1100px; height: 780px;
+    background-color: rgb(235, 235, 179);
 }
 
 
 
-th, td { 
+tbody { 
 
+    white-space: nowrap;
+    font-weight:300;
+    font-size: xx-large;
+    background-color: azure;
+}
+
+thead, tfoot {
+    background-color: gray;
     white-space: nowrap;
     font-weight:300;
     font-size: xx-large;
 }
 div.dataTables_wrapper {
     position:absolute;
-    left: 0px; top: 160px;
+    left: 5px; top: 160px;
     width: 1000px;
     margin: 0 auto;
 }
