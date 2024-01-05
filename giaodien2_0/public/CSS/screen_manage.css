@@ -3,23 +3,40 @@
     position: absolute; 
     left: 0px; top: 150px; 
     width: 2000px; height: 780px;
-    background-color: rgb(179, 215, 212); 
+   
+}
+#Screen_Main_1 {
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 1000px; height: 780px;
+    background-color: rgb(179, 215, 212);
+}
+#Screen_Main_2 {
+    position: absolute;
+    left: 1000px; top: 0px;
+    width: 1000px; height: 780px;
+    background-color: gray;
 }
 
+
+
 th, td { 
+
     white-space: nowrap;
     font-weight:300;
     font-size: xx-large;
 }
 div.dataTables_wrapper {
-    width: 1800px;
+    position:absolute;
+    left: 0px; top: 160px;
+    width: 1000px;
     margin: 0 auto;
 }
 
 /* #example {
     position:absolute;
     left: 50px; top: 500px;
-    
+    width: 1500px; height: 780px;
 } */
 
 tfoot input {
@@ -33,11 +50,11 @@ tfoot input {
 #addRow {
     background-color: green; 
     color:black;
-    padding: 14px 20px;
+    padding: 12px 8px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 15%;
+    width: 30%;
     font-size: larger;
     font-weight: bolder;
 }
@@ -45,18 +62,18 @@ tfoot input {
 #deleteButton {
     background-color: red; 
     color:black;
-    padding: 14px 20px;
+    padding: 12px 8px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 15%;
+    width: 30%;
     font-size: larger;
     font-weight: bolder;
 }
 
 #addName[type=text], #id_svn[type=text] {
-    width: 10%;
-    padding: 12px 20px;
+    width: 15%;
+    padding: 12px 8px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -66,9 +83,9 @@ tfoot input {
   }
 
 
-#dept, #factory1, #level, #pass {
+#dept {
     width: 10%;
-    padding: 12px 20px;
+    padding: 12px 8px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -77,4 +94,59 @@ tfoot input {
     font-weight: bolder;
 }
  
+#factory1 {
+    width: 10%;
+    padding: 12px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: larger;
+    font-weight: bolder;
+}
 
+#level, #pass {
+    width: 15%;
+    padding: 12px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#toolName[type=text], #tooltype[type=text] {
+    width: 15%;
+    padding: 12px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+  #addTool {
+    background-color: green; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#deleteTool {
+    background-color: red; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: larger;
+    font-weight: bolder;
+}

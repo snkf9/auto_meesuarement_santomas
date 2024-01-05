@@ -28,3 +28,21 @@ function addNewRow() {
 // // Automatically add a first row of data
 // addNewRow();
 
+function addNewRow1() {
+    var table = $('#example_1').DataTable();
+
+    var name = document.getElementById('toolName').value;
+    var id_name = document.getElementById('tooltype').value;
+
+    table.row.add( [
+            name,
+            id_name,
+            'N/A',
+            'N/A',
+            'N/A'
+
+            
+
+     ] ).draw();
+
+}
