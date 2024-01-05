@@ -1,0 +1,8 @@
+/*Màn hình 1*/
+#Screen_1 {
+    position: absolute; 
+    left: 0px; top: 150px; 
+    width: 2000px; height: 780px;
+    background-color: rgb(185, 246, 241); 
+}
+/* Ensure that the demo table scrolls */

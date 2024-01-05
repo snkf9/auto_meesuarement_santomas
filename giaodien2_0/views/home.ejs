@@ -1,0 +1,223 @@
+<html>
+    <!-- Phần Header của Website -->
+    <head>
+        <!-- ////////////// GỌI CÁC CSS //////////////  -->
+        <link rel="stylesheet" href= "CSS/login.css">
+        <link rel="stylesheet" href= "CSS/slidebar.css">
+        <link rel="stylesheet" href= "CSS/screen_manage.css">
+        <link rel="stylesheet" href= "CSS/measure_screen.css">
+        <link rel="stylesheet" href= "CSS/checksheet_screen.css">
+        <link rel="stylesheet" href= "CSS/partdata_screen.css">
+        <!-- ////////////// CHƯƠNG TRÌNH HỆ THỐNG //////////////  -->
+        <title>Phần mềm đo Santomas</title>
+        <script src = "socket.io/socket.io.js"></script>
+        <script src = "js/FC1_Common.js"></script>
+        <script src = "js/dataTable.js"></script>
+        <script src = "js/FC2_UserManagement.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script>
+            var socket = io("localhost:3000"); // IP tĩnh (hoặc IP động, hoặc localhost)
+        </script>
+        <!-- ////////////// CHƯƠNG TRÌNH ĐĂNG NHẬP HỆ THỐNG //////////////  -->
+        <div id="div_login">
+                <div id="id01" class="modal">
+                <form id = "modal-content1" class="modal-content animate">
+                <div id = "img_container" class="imgcontainer">
+                    <span id = "closebtt" onclick="document.getElementById('id01').style.display='none'; logout();" class="close" title="Close Modal">&times;</span>
+                     <img id = "img_avatar" src="images/user.png" alt="Avatar" class="avatar">
+                </div>  
+            
+                <div id = "log_container" class="container">
+                    <label for="uname"><b>Mã nhân viên</b></label>
+                    <input id = "inputuser" type="text" placeholder="Enter Username" name="uname" required>
+            
+                    <label for="psw"><b>Mật khẩu</b></label>
+                    <input id = "inputpass" type="password" placeholder="Enter Password" name="psw" required>
+                    
+                    <button id = "bttlogin1" type="button" onclick="login();">Đăng nhập</button>
+                    
+                </div>
+            
+                
+                </form>
+            </div>
+        </div>
+    </head>
+    <!-- Phần thân của website -->
+    <body>
+        <!-- ///Bootstrap/// -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        
+        <!-- ///Jquery/// -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- ///datatable/// -->
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+        
+
+        <!-- ////////////// Code cho slidebar////////////// -->
+            <div id="title">CÔNG TY SANTOMAS VIỆT NAM JSC</div>
+            <div id="titleIqpc">Phần mềm đo IQPC</div>
+            <div id = "slidebar">
+                
+                <!--Nút đăng nhập/đăng xuất-->
+                <!-- <button id="bttLogin" class="btn" onclick="login();
+                        window.location.reload();
+                ">ĐĂNG NHẬP</button> -->
+                <button id="bttLogout" class="btn" onclick="logout();
+                ">ĐĂNG XUẤT</button>
+                <!--Nút chọn màn hình chính-->
+                <button id="btt_Screen_Main" onclick=" 
+                    fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen');
+                ">Người dùng</button>
+                <!--Nút chọn màn hình 1-->
+                <button id="btt_Screen_1" onclick=" 
+                    fn_ScreenChange('Screen_1','Screen_Main','Screen_2','Partdata_screen');
+                ">MEASURE</button>
+                <!--Nút chọn màn hình 2-->
+                <button id="btt_Screen_2" onclick=" 
+                    fn_ScreenChange('Screen_2','Screen_Main','Screen_1','Partdata_screen');
+                ">CHECK SHEET</button>  
+                 <!--Nút chọn màn hình 3-->
+                <button id="btt_partdata_screen" onclick=" 
+                    fn_ScreenChange('Partdata_screen','Screen_2','Screen_Main','Screen_1');
+            ">PART DATA</button>     
+                <div id="factory">SVN </div>
+                <div id="user">Level</div>            
+            </div>
+        <!-- //////////////Code cho màn hình chính////////////// -->
+            <div id = "Screen_Main">
+              
+                <p><button id="addRow" onclick="addNewRow()">Thêm tài khoản mới</button>
+                <button id="deleteButton">Xóa tài khoản</button></p>
+                <p><input type="text" id="addName" name="addName1" value="Tên nhân viên"> 
+                <input type="text" id="id_svn" name="addD1" value="Mã nhân viên"> 
+                <select size="1" id="dept" name="Phòng">
+                    <option value="IQPC" selected="selected">
+                        IQPC
+                    </option>
+                    <option value="QA">
+                        QA
+                    </option>
+                    <option value="Admin">
+                        Admin
+                    </option>
+                </select> 
+                
+                <select size="1" id="factory1" name="Nhà máy">
+                    <option value="SVN2" selected="selected">
+                        SVN2
+                    </option>
+                    <option value="SVN3">
+                        SVN3
+                    </option>
+                </select> 
+
+                <select size="1" id="level" name="cấp độ">
+                    <option value="Công nhân" selected="selected">
+                        Công nhân
+                    </option>
+                    <option value="Quản lý">
+                        Quản lý
+                    </option>
+                    <option value="admin">
+                        Admin
+                    </option>
+                </select> 
+                <input type="text" id="pass" name="pass_id" value="Mật khẩu"> 
+                </p>
+
+                <table id="example" class="cell-border row-border hover stripe" style="width:200%">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Mã nhân viên</th>
+                        <th>Phòng</th>
+                        <th>Nhà máy</th>
+                        <th>Cấp độ</th>
+                        
+                        
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Mã nhân viên</th>
+                        <th>Phòng</th>
+                        <th>Nhà máy</th>
+                        <th>Cấp độ</th>
+                        
+                    </tr>
+                </tfoot>
+            </table>    
+            </div> 
+        <script>
+            new DataTable('#example', {
+                paging: false,
+                scrollCollapse: true,
+                scrollY: '450px',
+                orderable: false,
+                
+                //Chương trình con tìm kiếm dữ liệu
+                initComplete: function () {
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            let column = this;
+                            let title = column.footer().textContent;
+
+                            // Create input element
+                            let input = document.createElement('input');
+                            input.placeholder = title;
+                            column.footer().replaceChildren(input);
+
+                            // Event listener for user input
+                            input.addEventListener('keyup', () => {
+                                if (column.search() !== this.value) {
+                                    column.search(input.value).draw();
+                                }
+                            });
+                        });
+                }
+                
+                        });
+                        const table = new DataTable('#example');
+                        table.on('click', 'tbody tr', (e) => {
+                        let classList = e.currentTarget.classList;
+                    
+                        if (classList.contains('selected')) {
+                            classList.remove('selected');
+                        }
+                        else {
+                            table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                            classList.add('selected');
+                        }
+                    });
+                    
+                    document.querySelector('#deleteButton').addEventListener('click', function () {
+                        table.row('.selected').remove().draw(false);
+                    });
+
+        </script>
+        <!-- //////////////Code cho màn hình 1////////////// -->
+        
+
+        <div id = "Screen_1">
+
+        </div>
+           
+
+                
+        <!-- //////////////Code cho màn hình 2////////////// -->
+            <div id = "Screen_2">
+                <p>Đây là màn 2</p>
+            </div> 
+            
+        <!-- //////////////Code cho màn hình 3////////////// -->
+            <div id = "Partdata_screen">
+                
+            </div> 
+        </body>
+</html>
