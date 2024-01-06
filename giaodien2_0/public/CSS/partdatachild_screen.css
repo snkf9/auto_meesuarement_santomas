@@ -1,0 +1,93 @@
+#part_data_child_screen{
+    position: absolute; 
+    left: 0px; top: 0px; 
+    width: 2200px; height: 780px;
+    background-color: rgb(13, 223, 135); 
+}
+
+#appearance_checkpoint_screen{
+    position: absolute; 
+    left: 0px; top: 0px; 
+    width: 2200px; height: 780px;
+    background-color:antiquewhite 
+}
+
+#dismesion_checkpoint_screen{
+    position: absolute; 
+    left: 0px; top: 0px; 
+    width: 2200px; height: 780px;
+    background-color:aqua
+}
+
+
+
+#partchild{
+    position: absolute;
+    left: 10px ; top: 0px;
+    width: 2000px; height: 680px;
+}
+#tablePartChild{
+    position: absolute;
+    left: 10px ; top: 150px;
+    width: 1800px; height: 550px;
+}
+#save_partdata {
+    background-color: blue; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;   
+    cursor: pointer;
+    width: 15%; height: 10%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 1500; top: 50;
+}
+
+#btt_partdata_child_screen, #btt_appearance_checkpoint_screen, #btt_dismesion_checkpoint_screen{
+    background-color: rgb(88, 145, 161);
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 10; top: 0;
+}
+
+#btt_appearance_checkpoint_screen{
+    background-color: rgb(88, 145, 161);
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 240; top: 0;
+}
+
+#btt_dismesion_checkpoint_screen{
+    background-color: rgb(88, 145, 161);
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 480; top: 0;
+}
+
+#appearence_checkpoint_table{
+    position: absolute;
+    left: 10; top: 150;
+}

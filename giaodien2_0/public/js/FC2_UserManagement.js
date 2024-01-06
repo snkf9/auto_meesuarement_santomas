@@ -13,7 +13,7 @@ function login()
     // Admin
     if (a == admin[0] && b == admin[1])
     {
-        fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen');
+        fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen', 'screen_empty');
         document.getElementById('id01').style.display='none';
         div.innerHTML ='Level 1';
         div_factory.innerHTML = 'SVN2';
@@ -22,7 +22,7 @@ function login()
     // User 1
     else if (a == user1[0] && b == user1[1])
     {
-        fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen');
+        fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen', 'screen_empty');
         document.getElementById('id01').style.display='none';
         document.getElementById("btt_Screen_2").disabled = true;
         div.innerHTML ='Level 2';
@@ -31,7 +31,7 @@ function login()
     // User 2
     else if (a == user2[0] && b == user2[1])
     {
-        fn_ScreenChange('Screen_2','Screen_Main','Screen_1','Partdata_screen');
+        fn_ScreenChange('Screen_2','Screen_Main','Screen_1','Partdata_screen', 'screen_empty');
         document.getElementById('id01').style.display='none';
         document.getElementById("btt_Screen_Main").disabled = true;
         document.getElementById("btt_Screen_1").disabled = true;

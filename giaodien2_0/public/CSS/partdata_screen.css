@@ -2,8 +2,14 @@
 #Partdata_screen {
     position: absolute; 
     left: 0px; top: 150px; 
-    width: 2000px; height: 780px;
+    width: 2200px; height: 780px;
     background-color: rgb(13, 223, 135); 
+}
+#screen_empty {
+    position: absolute; 
+    left: 0px; top: 150px; 
+    width: 2200px; height: 780px;
+    background-color: white; 
 }
 
 #addPart {
@@ -11,9 +17,9 @@
     color:black;
     padding: 12px 8px;
     margin: 8px 0;
-    border: none;
+    border: none;   
     cursor: pointer;
-    width: 30%;
+    width: 15%;
     font-size: larger;
     font-weight: bolder;
 }
@@ -25,12 +31,12 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 15%;
     font-size: larger;
     font-weight: bolder;
 }
 #mold_no[type=text], #part_Name[type=text], #part_No[type=text], #part_Location[type=text] {
-    width: 15%;
+    width: 10%;
     padding: 12px 8px;
     margin: 8px 0;
     display: inline-block;
@@ -41,3 +47,14 @@
   }
 
 
+  #openPart {
+    background-color: blue; 
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    font-size: larger;
+    font-weight: bolder;
+}

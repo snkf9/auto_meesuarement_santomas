@@ -34,7 +34,7 @@ function fn_ScreenChange(scr_1, scr_2, scr_3, scr_4, scr_5)
     document.getElementById(scr_2).style.visibility = 'hidden';    // Ẩn trang 1
     document.getElementById(scr_3).style.visibility = 'hidden';    // Ẩn trang 2
     document.getElementById(scr_4).style.visibility = 'hidden';    // Ẩn trang 3
-    
+    document.getElementById(scr_5).style.visibility = 'hidden';
 }
  
 function fn_take_value_measuament(m_data, id_lb){
@@ -44,12 +44,12 @@ function fn_take_value_measuament(m_data, id_lb){
 
 }
 
-function fn_screen_maint(){
-    document.getElementById('Screen_Main').style.visibility= 'visible';
-    document.getElementById('Screen_Main_1').style.visibility= 'visible';
-    document.getElementById('Screen_1').style.visibility= 'hidden';
-    document.getElementById('Screen_2').style.visibility= 'hidden';
-    document.getElementById('Partdata_screen').style.visibility= 'hidden';
-
+//Hàm chức năng chuyển trang
+function fn_ScreenChange1(scr_1, scr_2, scr_3, scr_4)
+{
+    document.getElementById(scr_1).style.visibility = 'visible';   // Hiển thị trang được chọn
+    document.getElementById(scr_2).style.visibility = 'hidden';    // Ẩn trang 1
+    document.getElementById(scr_3).style.visibility = 'hidden';    // Ẩn trang 2
+    document.getElementById(scr_4).style.visibility = 'hidden';    // Ẩn trang 3
+  
 }
-
