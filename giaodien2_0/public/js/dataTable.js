@@ -77,31 +77,66 @@ function addNewRow_partdata() {
 
 
 function addNewRow_d_checkpoint() {
-    var table = $('#appearence_checkpoint_table').DataTable();
+    var table = $('#dismesion_checkpoint_table').DataTable();
 
 
     table.row.add( [
-            '<input type="text" id="cp1" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp2" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp3" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp4" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp5" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp6" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp7" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp8" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp9" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp10" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp11" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp12" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp13" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp14" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp15" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp16" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp17" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp18" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp19" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp20" style="width= 200px; height=50px"></input>',
-            '<input type="text" id="cp21" style="width= 200px; height=50px"></input>',
+            '<input type="text" id="cp1" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp2" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;" ></input>',
+            '<input type="text" id="cp3" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp4" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp5" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp6" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp7" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp8" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp9" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp10" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp11" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="checkbox" id="cp12" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp13" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp14" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp15" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp16" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp17" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp18" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp19" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp20" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp21" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>'
+
+            // '<button type="button" class="btn green btn-xs select-row" data-id="7" data-includeTax="N">btn</button>'
+
+     ] ).draw();
+
+}
+
+function addNewRow_a_checkpoint() {
+
+    var table = $('#appearance_checkpoint_table').DataTable();
+
+
+    table.row.add( [
+            // '<input type="text" id="cp1" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            // '<input type="text" id="cp2" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;" ></input>',
+            // '<input type="text" id="cp3" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            // '<input type="text" id="cp4" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            // '<input type="text" id="cp5" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            // '<input type="text" id="cp6" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp7" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp8" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp9" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp10" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp11" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp9" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp12" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp13" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp14" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp15" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp16" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp17" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="checkbox" id="cp18" class"input_d_checkpoint" style="width: 30px; height: 30px "></input>',
+            '<input type="text" id="cp19" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            '<input type="text" id="cp20" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>',
+            //'<input type="text" id="cp21" class"input_d_checkpoint" style="width: 100%; font-size: xx-large;"></input>'
 
             // '<button type="button" class="btn green btn-xs select-row" data-id="7" data-includeTax="N">btn</button>'
 

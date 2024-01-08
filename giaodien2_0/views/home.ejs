@@ -3,6 +3,7 @@
     <head>
         <!-- ////////////// GỌI CÁC CSS //////////////  -->
         <link rel="stylesheet" href= "CSS/login.css">
+        <link rel="stylesheet" href= "CSS/apprearance_checkpoint_screen.css">
         <link rel="stylesheet" href= "CSS/manager_screen_1.css">
         <link rel="stylesheet" href= "CSS/slidebar.css">
         <link rel="stylesheet" href= "CSS/partdata_screen.css">
@@ -72,24 +73,24 @@
                 ">ĐĂNG XUẤT</button>
                 <!--Nút chọn màn hình chính-->
                 <button id="btt_Screen_Main" onclick=" 
-                    fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen', 'screen_empty' ) ;
-                    fn_ScreenChange('Screen_Main_1','Screen_Main_2', 'part_data_child_screen', 'appearance_checkpoint_screen' );
+                    fn_ScreenChange('Screen_Main','Screen_1','Screen_2','Partdata_screen', 'screen_partdata' ) ;
+                    fn_ScreenChange('Screen_Main_1','Screen_Main_2', 'part_data_child_screen', 'appearance_checkpoint_screen','dismesion_checkpoint_screen' );
                     
                 ">MANAGER</button>
                 <!--Nút chọn màn hình 1-->
                 <button id="btt_Screen_1" onclick=" 
                     fn_ScreenChange('Screen_1','Screen_Main','Screen_2','Partdata_screen', 'screen_empty' );
-                    fn_ScreenChange('Screen_1','screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen' )
+                    fn_ScreenChange('Screen_1','screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen' );
                 ">MEASURE</button>
                 <!--Nút chọn màn hình 2-->
                 <button id="btt_Screen_2" onclick=" 
                     fn_ScreenChange('Screen_2','Screen_Main','Screen_1','Partdata_screen', 'screen_empty');
-                    fn_ScreenChange('Screen_2','screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen' )
+                    fn_ScreenChange('Screen_2','screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen' );
                 ">CHECK SHEET</button>  
                  <!--Nút chọn màn hình 3-->
                 <button id="btt_partdata_screen" onclick=" 
                     fn_ScreenChange('Partdata_screen','Screen_2','Screen_Main','Screen_1', 'screen_empty');
-                    fn_ScreenChange1('screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen')
+                    fn_ScreenChange1('screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen');
             
             ">PART DATA</button>     
                 <div id="factory">SVN </div>
@@ -371,6 +372,61 @@
                         </tfoot>
                     </table>  
                 </div>
+                
+            <script>
+                new DataTable('#part_data', {
+                    paging: false,
+                    scrollCollapse: true,
+                    scrollY: '450px',
+                    orderable: false,
+                                //Chương trình con tìm kiếm dữ liệu
+                                initComplete: function () {
+                            this.api()
+                                .columns()
+                                .every(function () {
+                                    let column = this;
+                                    let title = column.footer().textContent;
+        
+                                    // Create input element
+                                    let input = document.createElement('input');
+                                    input.placeholder = title;
+                                    column.footer().replaceChildren(input);
+        
+                                    // Event listener for user input
+                                    input.addEventListener('keyup', () => {
+                                        if (column.search() !== this.value) {
+                                            column.search(input.value).draw();
+                                        }
+                                    });
+                                });
+                        }
+                        
+                                });
+                                let id_counter=1;
+                                const table_4 = new DataTable('#part_data');
+                                table_4.on('click', 'tbody tr', (e) => {
+                                let classList2 = e.currentTarget.classList;
+                            
+                                if (classList2.contains('selected')) {
+                                    classList2.remove('selected');
+                                }
+                                else {
+                                    table_4.rows('.selected').nodes().each((row) => row.classList2.remove('selected'));
+                                    classList2.add('selected');
+                                }
+                            });
+                            
+                            document.querySelector('#deletePart').addEventListener('click', function () {
+                                let choise= confirm("Bạn có muốn xóa part?")
+                                if(choise==true){
+                                    table_4.row('.selected').remove().draw(false);
+                                }
+                            });  
+                           
+                
+                
+            </script>
+
                 <!-- ////Part data screem child//// -->
                 <div id="part_data_child_screen">
                         <p>
@@ -386,8 +442,8 @@
                         <p><button id="save_partdata"  onclick="
                             fn_ScreenChange1('screen_partdata', 'part_data_child_screen', 'appearance_checkpoint_screen', 'dismesion_checkpoint_screen');">
                             SAVE</button></p>
-                        <table class="display compact" id="tablePartChild" style="width:100%">
-                            <tr style="width:100%; height: 10%; ">
+                        <table class="display compact" id="tablePartChild" style="width:100%; border-style: solid; border-width: 5px; border-color: black;">
+                            <tr style="width:100%; height: 10%; width:100%; border-style: solid; border-width: 5px; border-color: black; ">
                                 
                                 <td style="background-color: rgb(180, 177, 177);">Customer</td>
                                 <td>
@@ -452,7 +508,7 @@
                                 </td>
                                 <td style="background-color: rgb(180, 177, 177);">Special Cavity Designation</td>
                                 <td>
-                                    <input type="checkbox" id="scd_part_child" name="scd_part_child" style="width:50%; height:50%; "  >
+                                    <input type="checkbox" id="scd_part_child" name="scd_part_child" style="width:50%; height:50%;  "  >
                                     
                                 </td>
                             </tr >
@@ -520,86 +576,71 @@
                             fn_ScreenChange1('appearance_checkpoint_screen', 'screen_partdata', 'part_data_child_screen', 'dismesion_checkpoint_screen')">Appearance checkpoint</button>
                         <button id="btt_dismesion_checkpoint_screen" onclick="
                             fn_ScreenChange1('dismesion_checkpoint_screen', 'appearance_checkpoint_screen', 'screen_partdata', 'part_data_child_screen')">Appearance checkpoint</button>
-            
                     </p>
                     <p>
-                        <button id="add_d_checkpoint2" onclick="addNewRow_d_checkpoint()">Thêm checkpoint</button>
-                        <button id="delete_d_checkpoint">Xóa checkpoint</button>
-                        </p>
+                    <button id="add_a_checkpoint2" onclick="addNewRow_a_checkpoint()">Thêm checkpoint</button>
+                    <button id="delete_a_checkpoint">Xóa checkpoint</button>
+                    </p>
+                
+                <table id="appearance_checkpoint_table" class="display" style="width: 100%;">
+                    <thead >
+                        <tr >
+                            <th ><p>Item</p> No</th>                                
+                            <th style="width: 150px;">Check content</th>                                                           
+                            <th >Specs</th>
+                            <th>Tool</th>                                                      
+                            <th>ENG</th>
+                            <th>Supporting Jig</th>
+                            <th>QA</th>
+                            <th><p>QA Sample</p> Size</th>                                                           
+                            <th><p>QA</p>Frequence</th>
+                            <th>IQPC</th>
+                            <th><p>IQPC Sample</p> Size</th>                                                     
+                            <th><p>IQPC</p>Frequence</th>                                                      
+                            <th>OQC</th>
+                            <th><p>OQC </p>Sample size</th>
+                            <th><p>OQC</p>Frequence</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                      
+    
+                    </tbody>
+    
                     
-                    <table id="appearence_checkpoint_table" class="cell-border row-border hover stripe compact" style="width:100%">
-                        <thead>
-                            <tr >
-                                <th >Item
-                                    No</th>
-                                <th >Geometric
-                                    Tolerance
-                                </th>
-                                <th >Specs</th>
-                                <th>Tolerance</th>
-                                <th>Lower
-                                    limit
-                                </th>
-                                <th>Upper
-                                    limit
-                                </th>
-                                <th>FA Accepted
-                                    min
-                                </th>
-                                <th>Position</th>
-                                <th>DimTool</th>
-                                <th>Supporting
-                                    Jig
-                                </th>
-                                <th>ENG</th>
-                                <th>QA</th>
-                                <th>QA Sample
-                                    Size
-                                </th>
-                                <th>QA
-                                    Frequnce
-                                </th>
-                                <th>OQC</th>
-                                <th>OQC Sample size
-                                </th>
-                            </tr>
-                        </thead>
-        
-                        
-                    </table>   
-
-                </div>
+                </table>   
                 <script>
-                    new DataTable('#appearence_checkpoint_table', {
-                       // paging: false,
-                       // scrollCollapse: true,
+                    new DataTable('#appearance_checkpoint_table', {
+                        paging: false,
+                        // scrollCollapse: true,
                         scrollX: true,
                         scrollY: '450px',
-                        //orderable: false,
-                                              
-                                });
-                                const table_3 = new DataTable('#appearence_checkpoint_table');
-                                table_3.on('click', 'tbody tr', (e) => {
+                        orderable: false
+                       
+                    });
+                                const table_5 = new DataTable('#appearance_checkpoint_table');
+                                table_5.on('click', 'tbody tr', (e) => {
                                 let classList1 = e.currentTarget.classList;
                             
                                 if (classList1.contains('selected')) {
                                     classList1.remove('selected');
                                 }
                                 else {
-                                    table_3.rows('.selected').nodes().each((row) => row.classList1.remove('selected'));
+                                    table_5.rows('.selected').nodes().each((row) => row.classList1.remove('selected'));
                                     classList1.add('selected');
                                 }
                             });
                             
-                            document.querySelector('#deleteTool').addEventListener('click', function () {
-                                let choise = confirm("Bạn có muốn xóa check point?")
+                            document.querySelector('#delete_a_checkpoint').addEventListener('click', function () {
+                                let choise = confirm("Bạn có muốn xóa a check point?")
                                 if (choise ==true){
-                                    table_3.row('.selected').remove().draw(false);
+                                    table_5.row('.selected').remove().draw(false);
                                 }
                                 
                             });
         
                 </script>
+ 
                 
                 <!-- ///Dismesion checkpoint screen/// -->
                 <div id="dismesion_checkpoint_screen">
@@ -612,65 +653,101 @@
                             fn_ScreenChange1('dismesion_checkpoint_screen', 'appearance_checkpoint_screen', 'screen_partdata', 'part_data_child_screen')">Appearance checkpoint</button>
             
                 </p>
+            </p>
+            <p>
+                <button id="add_d_checkpoint2" onclick="addNewRow_d_checkpoint()">Thêm checkpoint</button>
+                <button id="delete_d_checkpoint">Xóa checkpoint</button>
+                </p>
+            
+            <table id="dismesion_checkpoint_table" class="display" style="width: 100%;">
+                <thead >
+                    <tr >
+                        <th ><p>Item</p> No</th>
+                            
+                        <th ><p>Geometric</p> Tolerance</th>
+                            
+                        
+                        <th >Specs</th>
+                        <th>Tolerance</th>
+                        <th><p>Lower</p> limit</th>
+                            
+                        
+                        <th><p>Upper</p> limit</th>
+                            
+                        
+                        <th><p>FA Accepted</p> min</th>
+                            
+                        
+                        <th>Position</th>
+                        <th>DimTool</th>
+                        <th><p>Supporting</p> Jig</th>
+                            
+                        
+                        <th>ENG</th>
+                        <th>QA</th>
+                        <th><p>QA Sample</p> Size</th>
+                            
+                        
+                        <th><p>QA</p>Frequence</th>
+                        <th>IQPC</th>
+                        <th><p>IQPC Sample</p> Size</th>
+                            
+                        
+                        <th><p>IQPC</p>Frequence</th>
+                            
+                        
+                        <th>OQC</th>
+                        <th><p>OQC </p>Sample size
+                        </th>
+                        <th><p>OQC</p>Frequence</th>
+                    </tr>
+                </thead>
+                <tbody >
+                  
+
+                </tbody>
+
+                
+            </table>   
+
+        </div>
+        <script>
+            new DataTable('#dismesion_checkpoint_table', {
+                paging: false,
+                // scrollCollapse: true,
+                scrollX: true,
+                scrollY: '450px',
+                orderable: false
+               
+            });
+                        const table_3 = new DataTable('#dismesion_checkpoint_table');
+                        table_3.on('click', 'tbody tr', (e) => {
+                        let classList1 = e.currentTarget.classList;
+                    
+                        if (classList1.contains('selected')) {
+                            classList1.remove('selected');
+                        }
+                        else {
+                            table_3.rows('.selected').nodes().each((row) => row.classList1.remove('selected'));
+                            classList1.add('selected');
+                        }
+                    });
+                    
+                    document.querySelector('#delete_d_checkpoint').addEventListener('click', function () {
+                        let choise = confirm("Bạn có muốn xóa check point?")
+                        if (choise ==true){
+                            table_3.row('.selected').remove().draw(false);
+                        }
+                        
+                    });
+
+        </script>
 
                 </div>
             </div> 
 
 
 
-            <script>
-                new DataTable('#part_data', {
-                    paging: false,
-                    scrollCollapse: true,
-                    scrollY: '450px',
-                    orderable: false,
-                                //Chương trình con tìm kiếm dữ liệu
-                                initComplete: function () {
-                            this.api()
-                                .columns()
-                                .every(function () {
-                                    let column = this;
-                                    let title = column.footer().textContent;
-        
-                                    // Create input element
-                                    let input = document.createElement('input');
-                                    input.placeholder = title;
-                                    column.footer().replaceChildren(input);
-        
-                                    // Event listener for user input
-                                    input.addEventListener('keyup', () => {
-                                        if (column.search() !== this.value) {
-                                            column.search(input.value).draw();
-                                        }
-                                    });
-                                });
-                        }
-                        
-                                });
-                                let id_counter=1;
-                                const table_4 = new DataTable('#part_data');
-                                table_4.on('click', 'tbody tr', (e) => {
-                                let classList2 = e.currentTarget.classList;
-                            
-                                if (classList2.contains('selected')) {
-                                    classList2.remove('selected');
-                                }
-                                else {
-                                    table_4.rows('.selected').nodes().each((row) => row.classList1.remove('selected'));
-                                    classList2.add('selected');
-                                }
-                            });
-                            
-                            document.querySelector('#delete_d_checkpoint').addEventListener('click', function () {
-                                let choise= confirm("Bạn có muốn xóa part?")
-                                if(choise==true){
-                                    table_4.row('.selected').remove().draw(false);
-                                }
-                            });  
-                           
-                
-                
-            </script>
                     <!-- //////////////EMPTY SCREEN////////////// -->
                 
 

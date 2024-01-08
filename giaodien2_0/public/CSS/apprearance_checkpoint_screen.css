@@ -1,0 +1,26 @@
+#add_a_checkpoint2{
+    background-color: blue;
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 180; top: 100;
+}
+#delete_a_checkpoint{
+    background-color: red;
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 480; top: 100;
+}

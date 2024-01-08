@@ -87,7 +87,39 @@
     left: 480; top: 0;
 }
 
-#appearence_checkpoint_table{
+/* #appearence_checkpoint_table{
     position: absolute;
     left: 10; top: 150;
+} */
+
+#add_d_checkpoint2{
+    background-color: blue;
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 180; top: 100;
+}
+#delete_d_checkpoint{
+    background-color: red;
+    color:black;
+    padding: 12px 8px;
+    margin: 8px 0;
+    border: 2px;   
+    cursor: pointer;
+    width: 8%; height: 8%;
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    left: 480; top: 100;
+}
+
+#input_d_checkpoint{
+    width: 100px;
+    height: 100px;
 }

@@ -31,16 +31,29 @@ tbody {
 thead, tfoot {
     background-color: rgb(194, 190, 190);
     white-space: nowrap;
-    font-weight:300;
+    font-weight:250;
     font-size: xx-large;
+    border-style: solid;
+    border-width: 10px;
     border-color: black;
-    border-width: 5px;
+    
+}
+
+th {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    min-height: 100px;
 }
 div.dataTables_wrapper {
     position:absolute;
     left: 10px; top: 160px;
     width: 2100px; 
     margin: 0 auto;
+    
+    /* border: 5px; 
+    border-style: solid;
+    border-color: black; */
 }
 
 /* #example {
@@ -57,6 +70,8 @@ tfoot input {
     font-size: xx-large;
     
 }
+
+
 
 #addRow {
     background-color: green; 
@@ -204,3 +219,4 @@ font-weight: bolder;
     font-weight: bolder;
 
 }
+
